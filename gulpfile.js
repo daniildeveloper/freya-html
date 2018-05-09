@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 /**
  * run gulp watch dev server
  */
-gulp.task('default', ['framework-prepare', 'pug', 'img', 'fonts', 'js'], function () {
+gulp.task('default', ['framework-prepare', 'pug', 'img', 'fonts', 'js', 'less'], function () {
     sync.init({
         server: {
             baseDir: './dist'
@@ -81,6 +81,9 @@ gulp.task('framework-prepare', function () {
         .pipe(gulp.dest('./dist/css'));
     gulp.src(('node_modules/font-awesome/fonts/**/*'))
         .pipe(gulp.dest('./dist/fonts'));
+
+    gulp.src('./src/js/**/*')
+        .pipe(gulp.dest('./dist/js'))
 
 });
 
